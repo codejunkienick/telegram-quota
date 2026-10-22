@@ -1,0 +1,32 @@
+# Config of the /quota command (README.md, "Config"). Keep it owner-only:
+# chmod 600. Every key is optional except `aiquokka` while `providers` is
+# not empty; an unknown key or a relative path refuses the whole reply.
+
+# Absolute path of the aiquokka executable.
+aiquokka = "/usr/local/bin/aiquokka"
+
+# aiquokka providers to read, in table order ([] reads only the readings).
+providers = ["claude", "codex", "muse", "antigravity", "grok", "deepseek"]
+
+# Seconds each provider may take, 1-15.
+provider_timeout_seconds = 8
+
+# Owner-only file holding the DeepSeek API key, given to the deepseek read
+# only. Leave it out for no key.
+# deepseek_key_file = "/path/to/deepseek.key"
+
+# Directories put before /usr/local/bin:/usr/bin:/bin for aiquokka and the
+# CLIs it runs (muse, agy, ...) when they live elsewhere.
+path_prepend = []
+
+# Reading files another program writes (README.md, "Reading files").
+readings = []
+
+# An existing directory for the last good answer per provider; list it in
+# the bridge's handler_write_paths too. Leave it out for no cache.
+# cache_dir = "/path/to/quota-cache"
+
+# A label shown after the provider in its header: "Claude · personal".
+[labels]
+# claude = "personal"
+# codex = "personal"
